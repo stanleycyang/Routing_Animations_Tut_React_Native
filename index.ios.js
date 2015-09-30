@@ -1,4 +1,5 @@
 const React = require('react-native');
+const Box = require('./PlayGround');
 const {
   AppRegistry,
   StyleSheet,
@@ -38,6 +39,7 @@ class PageOne extends Component {
   render() {
     return (
       <View style={[styles.container, {backgroundColor: 'green'}]}>
+        <Box />
         <Text style={styles.welcome}>Greetings!</Text>
         <TouchableOpacity onPress={this._handlePress.bind(this)}>
           <View style={{paddingVertical: 10, paddingHorizontal: 20, backgroundColor: 'black'}}>
