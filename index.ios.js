@@ -1,5 +1,6 @@
 const React = require('react-native');
 const Box = require('./PlayGround');
+const Circle = require('./Circle');
 const {
   AppRegistry,
   StyleSheet,
@@ -66,6 +67,7 @@ class PageTwo extends Component {
     return (
       <View style={[styles.container, {backgroundColor: 'purple'}]}>
         <Text style={styles.welcome}>This is page two!</Text>
+        <Circle />
         <TouchableOpacity onPress={this._handlePress.bind(this)}>
           <View style={{paddingVertical:10, paddingHorizontal: 20, backgroundColor: 'black'}}>
           <Text style={styles.welcome}>Go to page 3</Text>
