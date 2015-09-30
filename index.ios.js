@@ -28,10 +28,12 @@ const CustomSceneConfig = Object.assign({}, BaseConfig, {
 class PageOne extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props.navigator);
   }
   _handlePress() {
     this.props.navigator.push({id: 2});
+  }
+  _goBack() {
+    this.props.navigator.pop();
   }
   render() {
     return (
@@ -52,6 +54,9 @@ class PageTwo extends Component {
     super(props);
   }
   _handlePress() {
+    this.props.navigator.push({id: 3})
+  }
+  _goBack() {
     this.props.navigator.pop();
   }
 
@@ -61,7 +66,39 @@ class PageTwo extends Component {
         <Text style={styles.welcome}>This is page two!</Text>
         <TouchableOpacity onPress={this._handlePress.bind(this)}>
           <View style={{paddingVertical:10, paddingHorizontal: 20, backgroundColor: 'black'}}>
-          <Text style={styles.welcome}>Go back</Text>
+          <Text style={styles.welcome}>Go to page 3</Text>
+          </View>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+}
+
+class PageThree extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  _handlePress() {
+    this.props.navigator.push({id:1})
+  }
+
+  _goBack() {
+    this.props.navigator.pop();
+  }
+
+  render() {
+    return (
+      <View style={[styles.container, {backgroundColor: 'blue'}]}>
+        <Text style={styles.welcome}>This is page three!</Text>
+        <TouchableOpacity onPress={this._handlePress.bind(this)}>
+          <View style={{paddingVertical: 10, paddingHorizontal: 20, backgroundColor: 'black'}}>
+            <Text style={styles.welcome}>Go home</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={this._goBack.bind(this)}>
+          <View style={{paddingVertical: 10, paddingHorizontal: 20, backgroundColor: 'red'}}>
+            <Text style={styles.welcome}>Go back one</Text>
           </View>
         </TouchableOpacity>
       </View>
@@ -78,6 +115,8 @@ class AnimateTricks extends Component {
         return <PageOne navigator={navigator} />
       case 2:
         return <PageTwo navigator={navigator} />
+      case 3:
+        return <PageThree navigator={navigator} />
     }
   }
 
