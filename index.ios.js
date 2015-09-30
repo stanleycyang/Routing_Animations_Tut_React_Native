@@ -1,6 +1,7 @@
 const React = require('react-native');
 const Box = require('./PlayGround');
 const Circle = require('./Circle');
+const FlyingSquare = require('./FlyingSquare');
 const {
   AppRegistry,
   StyleSheet,
@@ -99,6 +100,7 @@ class PageThree extends Component {
   render() {
     return (
       <View style={[styles.container, {backgroundColor: 'blue'}]}>
+        <FlyingSquare />
         <Text style={styles.welcome}>This is page three!</Text>
         <TouchableOpacity onPress={this._handlePress.bind(this)}>
           <View style={{paddingVertical: 10, paddingHorizontal: 20, backgroundColor: 'black'}}>
