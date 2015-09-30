@@ -5,13 +5,22 @@ const {
   LayoutAnimation,
   StyleSheet,
   TouchableOpacity,
-  Text
+  Text,
+  WebView
 } = React;
 
 class Circle extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      url: 'https://www.youtube.com/watch?v=27d138zhyZQ'
+    };
+  }
   render() {
     return (
-      <View style={styles.circle} />
+      <View style={styles.circle}>
+        <WebView url={this.state.url} />
+      </View>
     );
   }
 }
@@ -21,7 +30,7 @@ styles = StyleSheet.create({
     width: 100,
     height: 100,
     borderRadius: 100/2,
-    backgroundColor: 'red',
+    overflow: 'hidden'
   }
 });
 

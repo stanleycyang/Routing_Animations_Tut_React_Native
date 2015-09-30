@@ -73,6 +73,11 @@ class PageTwo extends Component {
           <Text style={styles.welcome}>Go to page 3</Text>
           </View>
         </TouchableOpacity>
+        <TouchableOpacity onPress={this._goBack.bind(this)}>
+          <View style={{paddingVertical: 10, paddingHorizontal: 20, backgroundColor: 'green'}}>
+            <Text style={styles.welcome}>Go back one</Text>
+          </View>
+        </TouchableOpacity>
       </View>
     );
   }
